@@ -1,4 +1,8 @@
-﻿ActionBar {
+﻿.fa {
+    font-family: FontAwesome, fontawesome-webfont;
+}
+
+ActionBar {
     background-color: #4caf50;
     color: white;
 }

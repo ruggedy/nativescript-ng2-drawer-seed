@@ -9,7 +9,7 @@ import {DrawerComponent} from '../drawer/drawer.component';
 @Component({
     moduleId: module.id,
     selector: 'home',
-    template: require('html!./home.component.html'),
+    template: require('./home.component.html'),
     directives: [NS_ROUTER_DIRECTIVES_EXT, DrawerComponent]
 })
 export class HomeComponent extends PageComponent {

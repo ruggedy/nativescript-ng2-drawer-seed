@@ -11,24 +11,16 @@ import {AppComponent} from './app.component';
 import {APP_ROUTES_PROVIDER} from './app.routes';
 
 import * as native from './utils/native';
-import {TNSFontIconService} from 'nativescript-ng2-fonticon/nativescript-ng2-fonticon';
-
-import './fonts/font-awesome.css';
-import './fonts/fontawesome.ttf';
 
 native.StatusBar.setColor('#388e3c');
+
+import './fonts/fontawesome-webfont.ttf';
 
 nativeScriptBootstrap(AppComponent, [
     APP_ROUTES_PROVIDER,
     NS_ROUTER_PROVIDERS,
     RouterOutletMap,
-    SIDEDRAWER_PROVIDERS,
-    {
-        provide: TNSFontIconService,
-        useFactory: () => {
-            return new TNSFontIconService({
-                'fa': 'fonts/font-awesome.css'
-            });
-        }
-    }]
-);
+    SIDEDRAWER_PROVIDERS
+],{
+    cssFile: require('./style.css')
+});
