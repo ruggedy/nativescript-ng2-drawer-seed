@@ -1,5 +1,6 @@
 // this import should be first in order to load some required settings (like globals and reflect-metadata)
 import {nativeScriptBootstrap} from 'nativescript-angular/application';
+require('./shared/meteor/meteor-client-side.bundle.js');
 // angular2 and nativescript
 import {RouterOutletMap} from '@angular/router';
 import {NS_ROUTER_PROVIDERS} from 'nativescript-angular/router';
@@ -15,46 +16,14 @@ import * as native from './utils/native';
 
 native.StatusBar.setColor('#388e3c');
 
-var DDPClient = require('nativescript-meteor');
+import {IterableDiffers} from '@angular/core';
+import {MongoCursorDifferFactory} from './shared/meteor/mongo_cursor_differs';
+import {defaultIterableDiffers} from '@angular/core/src/change_detection/change_detection';
 
-var ddpclient = new DDPClient({
-    host: "localhost",
-    port: 3000,
-    ssl: false,
-    autoReconnect: true,
-    autoReconnectTimer: 15000,
-    maintainCollections: true,
-    ddpVersion: '1',
-    useSockJs: true
-});
-
-ddpclient.connect(function (error, wasReconnect) {
-    if (error) {
-        console.log('DDP connection error!');
-        return;
-    }
-
-    if (wasReconnect) {
-        console.log('Reestablishment of a connection.');
-    }
-
-    console.log('connected!');
-
-    // SUBSCRIBE COLLECTIONS
-    ddpclient.subscribe(
-        'todos',                  // name of Meteor Publish function to subscribe to
-        [],                       // any parameters used by the Publish function
-        function () {             // callback when the subscription is complete
-            console.log('posts complete:');
-            console.log(ddpclient.collections.todos);
-            for (var _id in ddpclient.collections.todos) {
-                var todos = ddpclient.collections.todos[_id];
-                console.log("Adding available todos " + _id + " name: " + todos.judul);
-            }
-        });
-});
-/*
-*/
+let factories = defaultIterableDiffers.factories;
+if (factories) {
+    factories.push(new MongoCursorDifferFactory());
+}
 
 nativeScriptBootstrap(
     AppComponent,
@@ -70,6 +39,10 @@ nativeScriptBootstrap(
                     'fa': 'fonts/font-awesome.css'
                 });
             }
+        },
+        {
+            provide: IterableDiffers,
+            useValue: new IterableDiffers(factories)
         }
     ],
     {

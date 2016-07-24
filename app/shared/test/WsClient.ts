@@ -4,7 +4,7 @@ let NativeWebSocket:NativeWebSocket = require('nativescript-websockets');
 let Mongo = require('minimongo-standalone');
 
 @Injectable()
-export class WsClient {
+export default class WsClient {
 
     private _socket:NativeWebSocket;
     private _subject:Subject<any>;
