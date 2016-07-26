@@ -1,6 +1,6 @@
 import {Component, ChangeDetectorRef, NgZone} from '@angular/core';
 import {Todo} from '../todo.model';
-import MeteorComponent from '../../../shared/meteor/MeteorComponent';
+import {MeteorComponent} from 'nativescript-ng2-meteor';
 import {TNSFontIconPipe} from 'nativescript-ng2-fonticon/nativescript-ng2-fonticon';
 
 let Todos = new Mongo.Collection<Todo>('todos');
