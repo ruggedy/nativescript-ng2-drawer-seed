@@ -1,7 +1,6 @@
 {
   "description": "NativeScript Angular2 Seed with Telerik drawer",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "readme": "NativeScript Application",
+  "license": "MIT",
   "repository": "https://github.com/ntrp/nativescript-ng2-drawer-seed.git",
   "nativescript": {
     "id": "org.nativescript.nativescriptng2drawerseed",
@@ -23,7 +22,7 @@
     "es6-shim": "^0.35.1",
     "nativescript-angular": "0.2.0",
     "nativescript-ng2-fonticon": "^1.2.3",
-    "nativescript-ng2-meteor": "^1.0.0",
+    "nativescript-ng2-meteor": "^1.0.1",
     "nativescript-telerik-ui": "^1.2.0",
     "tns-core-modules": "^2.1.0",
     "underscore": ">=1.0.0"
