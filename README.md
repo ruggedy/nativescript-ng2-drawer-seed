@@ -10,6 +10,5 @@ To test the app just clone the repository and run:
 $ npm install && tns run android
 ```
 
-There are also a webpack version under the `webpack` branch and another version
-that integrates Meteor by using [nativescript-ng2-meteor](https://github.com/ntrp/nativescript-ng2-meteor)
-under the `meteor` branch.
+There are also a standard version under the `master` branch and another that uses webpack
+under the `webpack` branch.
