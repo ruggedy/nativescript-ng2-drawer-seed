@@ -22,7 +22,7 @@
     "es6-shim": "^0.35.1",
     "nativescript-angular": "0.2.0",
     "nativescript-ng2-fonticon": "^1.2.3",
-    "nativescript-ng2-meteor": "^1.0.1",
+    "nativescript-ng2-meteor": "^1.0.2",
     "nativescript-telerik-ui": "^1.2.0",
     "tns-core-modules": "^2.1.0",
     "underscore": ">=1.0.0"
